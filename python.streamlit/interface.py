@@ -79,7 +79,7 @@ if "logged_in" not in st.session_state:
 
 # ---------------- Lógica de login ----------------
 if not st.session_state.logged_in:
-    img_path = Path("TrioCSE.jpg")
+    img_path = Path(__file__).parent/"TrioCSE.jpg"
 
 # Converte imagem em base64
     def get_base64_of_image(image_file):
@@ -157,7 +157,7 @@ if not st.session_state.logged_in:
 
 # ---------------- Área protegida ----------------
 else:
-    img_path = Path("TrioCIDG.jpg")
+    img_path = Path(__file__).parent / "TrioCIDG.jpg"
 # Converte imagem em base64
     def get_base64_of_image(image_file):
         with open(image_file, "rb") as f:
