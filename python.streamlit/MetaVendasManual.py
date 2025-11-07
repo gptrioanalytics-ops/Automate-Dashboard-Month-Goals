@@ -13,6 +13,7 @@ import time
 from dotenv import load_dotenv
 import os
 from streamlit_autorefresh import st_autorefresh
+import json
 
 
 
@@ -31,7 +32,7 @@ with col1:
 
 count = st_autorefresh(interval=120*1000, key="meta_refresh")
 
-img_path = Path("TrioCIDG.jpg")
+img_path = Path(__path__).parent/"TrioCIDG.jpg"
 
 # 5️⃣ Função para converter em base64
 def get_base64_of_image(image_file):
@@ -66,7 +67,9 @@ st.markdown(
 #------conexão com Google Sheets----------------
 scope = [ "https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("metadevenda-9750bb128912.json", scope)
+creds_dict = json.loads(st.secrets["creds_json"])
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
 SHEET_NAME = "MetaVendas"   # nome da planilha
