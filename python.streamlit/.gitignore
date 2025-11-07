@@ -1,0 +1,62 @@
+# ===============================
+# 🧠 CONFIGURAÇÃO DE SEGURANÇA
+# ===============================
+.env
+*.json
+*.key
+*.pem
+*.p12
+
+
+# ===============================
+# 🧩 ARQUIVOS PYTHON
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.sqlite3
+*.db
+
+# ===============================
+# ⚙️ AMBIENTE VIRTUAL
+# ===============================
+venv/
+env/
+.venv/
+ENV/
+.ENV/
+
+# ===============================
+# 🧱 CONFIGS E LOGS
+# ===============================
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.tmp
+
+# ===============================
+# 🧮 NOTEBOOKS E CACHE
+# ===============================
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+streamlit_cache/
+.cache/
+.pytest_cache/
+
+# ===============================
+# 🌐 DEPLOY E FRONT-END
+# ===============================
+node_modules/
+dist/
+build/
+*.map
+
+# ===============================
+# 🧰 IDEs
+# ===============================
+.vscode/
+.idea/
+*.code-workspace
