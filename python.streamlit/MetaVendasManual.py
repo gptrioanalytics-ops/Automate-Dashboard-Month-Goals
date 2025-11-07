@@ -15,19 +15,8 @@ import os
 from streamlit_autorefresh import st_autorefresh
 import json
 
+st.set_page_config(layout="wide")
 
-
-titulo = st.empty()
-col1, = st.columns(1)
-with col1:
-    titulo.markdown(
-        f"""
-        <div style="text-align: center; font-size: 100px;">
-            <h1>📊Acompanhamento de Vendas Outubro</h1>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
 
 count = st_autorefresh(interval=120*1000, key="meta_refresh")
@@ -90,8 +79,34 @@ meses = df['mes_normalizado'].dropna().unique()
 meses.sort()  # opcional: ordem cronológica
 
 mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
-titulo.title(f"📊Acompanhamento de Vendas - {mes_atual}")
 
+st.markdown(
+    f"""
+    <style>
+    .fixed-title {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(6px);
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 70px;
+        font-weight: bold;
+        padding: 20px 0;
+        z-index: 9999;
+        border-bottom: 2px solid rgba(255,255,255,0.3);
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }}
+    </style>
+
+    <div class="fixed-title">
+        📊 Acompanhamento de Vendas - {mes_atual}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Filtra usando o mês normalizado
 
@@ -150,24 +165,12 @@ if meta_valor > 0:
         
             unsafe_allow_html=True
         )
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(    
+    st.markdown(    
             f"""
             <div style="text-align: center; font-size: 60px;">
                 Realizado: {realizado_fmt} 
             </div>
              """,
-        
-            unsafe_allow_html=True
-        )
-    with col2:
-        st.markdown(    
-            f"""
-            <div style="text-align: center; font-size: 60px; color: lightblue;">
-            Esperado: {valor_esperado_fmt}
-            </div>
-            """,
         
             unsafe_allow_html=True
         )
