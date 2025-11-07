@@ -23,7 +23,7 @@ def connect_gsheets():
                "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file"]
     creds_dict = st.secrets["google"]
     #creds = ServiceAccountCredentials.from_json_keyfile_name(GSHEET_CREDS_PATH, scope)
-    creds = ServiceAccountCredentials.from_json_keyfile_name(creds_dict, scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
     return client
 
