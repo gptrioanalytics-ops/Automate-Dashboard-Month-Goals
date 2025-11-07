@@ -17,11 +17,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os 
 import hashlib
+import json
 
 def connect_gsheets():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive",
                "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file"]
-    creds_dict = st.secrets["google"]
+    creds_dict = json.loads(st.secrets["creds_json"])
+    creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
     #creds = ServiceAccountCredentials.from_json_keyfile_name(GSHEET_CREDS_PATH, scope)
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
