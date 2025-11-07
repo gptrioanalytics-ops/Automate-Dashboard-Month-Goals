@@ -83,8 +83,7 @@ mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
 st.markdown(
     f"""
     <style>
-    .fixed-title {{
-        position: fixed;
+    .fixed-title {{;
         top: 0;
         left: 0;
         width: 100%;
@@ -92,9 +91,9 @@ st.markdown(
         backdrop-filter: blur(6px);
         text-align: center;
         color: #FFFFFF;
-        font-size: 70px;
+        font-size: 50px;
         font-weight: bold;
-        padding: 60px;
+        padding: 45px;
         z-index: 9999;
         border-bottom: 2px solid rgba(255,255,255,0.3);
         text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
