@@ -21,7 +21,9 @@ import hashlib
 def connect_gsheets():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive",
                "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name(GSHEET_CREDS_PATH, scope)
+    creds_dict = st.secrets["google"]
+    #creds = ServiceAccountCredentials.from_json_keyfile_name(GSHEET_CREDS_PATH, scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name(creds_dict, scope)
     client = gspread.authorize(creds)
     return client
 
