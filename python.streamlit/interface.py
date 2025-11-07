@@ -19,6 +19,9 @@ import os
 import hashlib
 import json
 
+
+st.set_page_config(layout="wide")
+
 def connect_gsheets():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive",
                "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file"]
@@ -161,6 +164,7 @@ if not st.session_state.logged_in:
 
 # ---------------- Área protegida ----------------
 else:
+    st.set_page_config(layout="wide")
     img_path = Path(__file__).parent / "TrioCIDG.jpg"
 # Converte imagem em base64
     def get_base64_of_image(image_file):
