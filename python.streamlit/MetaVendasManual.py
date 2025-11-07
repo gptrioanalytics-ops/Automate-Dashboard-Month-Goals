@@ -32,7 +32,7 @@ with col1:
 
 count = st_autorefresh(interval=120*1000, key="meta_refresh")
 
-img_path = Path(__path__).parent/"TrioCIDG.jpg"
+img_path = Path(__file__).parent/"TrioCIDG.jpg"
 
 # 5️⃣ Função para converter em base64
 def get_base64_of_image(image_file):
