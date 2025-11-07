@@ -80,7 +80,7 @@ df = pd.DataFrame(data)
 try:
     locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")  # Linux/Mac
 except:
-    locale.setlocale(locale.LC_TIME, "portuguese")
+    locale.setlocale(locale.LC_TIME, "C")
 
 #meses = df["mes"].tolist()
 #mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
