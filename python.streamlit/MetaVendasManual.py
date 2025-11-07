@@ -14,25 +14,7 @@ from dotenv import load_dotenv
 import os
 from streamlit_autorefresh import st_autorefresh
 
-load_dotenv()
-SENHA_DASH = os.getenv("DASH_PASS")
 
-if "autenticado" not in st.session_state:
-    st.session_state["autenticado"] = False
-if not st.session_state["autenticado"]:
-    st.title("🔐 RESTRITO")
-    senha_input = st.text_input("Digite a senha de acesso:", type="password")
-
-    if st.button("Entrar"):
-        if senha_input == SENHA_DASH:  # Substitua pela sua senha
-            st.session_state["autenticado"] = True
-            st.success("✅ Acesso liberado!")
-            st.rerun()
-    #if st.session_state["autenticado"]:
-        #st.write("✅ Acesso liberado!")
-        else:
-            st.error("❌ Senha incorreta. Tente novamente.")
-    st.stop()
 
 titulo = st.empty()
 col1, = st.columns(1)
