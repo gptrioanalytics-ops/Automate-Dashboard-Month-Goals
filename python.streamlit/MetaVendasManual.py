@@ -62,7 +62,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
 SHEET_NAME = "MetaVendas"   # nome da planilha
-sheet = client.open(SHEET_NAME).sheet1
+sheet = client.open(SHEET_NAME).worksheet("SalvaDado")
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
 
