@@ -62,7 +62,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
 SHEET_ID = st.secrets["SHEET_ID"]
-SHEET_NAME = "MetaVendas"  
+SHEET_NAME = "SalvaDado"  
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
@@ -71,6 +71,8 @@ try:
     locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")  # Linux/Mac
 except:
     locale.setlocale(locale.LC_TIME, "C")
+
+st.write(st.secrets["creds_json"])
 
 #meses = df["mes"].tolist()
 #mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
