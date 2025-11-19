@@ -72,7 +72,6 @@ try:
 except:
     locale.setlocale(locale.LC_TIME, "C")
 
-st.write(st.secrets["creds_json"])
 
 #meses = df["mes"].tolist()
 #mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
