@@ -61,11 +61,12 @@ creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
-SHEET_NAME = "MetaVendas"   # nome da planilha
-sheet = client.open(SHEET_NAME).worksheet("SalvaDado")
+SHEET_ID = st.secrets["SHEET_ID"]
+SHEET_NAME = "MetaVendas"  
+sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
-
+print("Service Account:", creds_dict["client_email"])
 try:
     locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")  # Linux/Mac
 except:
