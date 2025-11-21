@@ -85,20 +85,18 @@ mes_atual = st.sidebar.selectbox("Selecione o mês:", meses)
 st.markdown(
     f"""
     <style>
-    .fixed-title {{;
+    .fixed-title {{
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.35);
-        backdrop-filter: blur(6px);
         text-align: center;
-        color: #FFFFFF;
-        font-size: 50px;
+        font-size: 32px;
         font-weight: bold;
-        padding: 45px;
+        padding: 20px 0;
+        background: transparent;
+        color: white;
         z-index: 9999;
-        border-bottom: 2px solid rgba(255,255,255,0.3);
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }}
     </style>
 
@@ -108,6 +106,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 # Filtra usando o mês normalizado
 
