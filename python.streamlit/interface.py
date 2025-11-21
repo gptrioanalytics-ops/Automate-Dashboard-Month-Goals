@@ -275,7 +275,7 @@ else:
             venda = realizado
 
             if st.button("Salvar"):
-                sheet = get_sheet("MetaVendas", "SalvaDado")
+                sheet = get_sheet(SHEET_ID, "SalvaDado")
                 registro = str(datetime.now())
                 data = [mes, meta, venda, vendedor, evento, registro]
                 sheet.append_row(data)
@@ -285,7 +285,7 @@ else:
                 )
     with col2:
 
-        sheet = get_sheet("MetaVendas", "SalvaDado")
+        sheet = get_sheet(SHEET_ID, "SalvaDado")
         dados = sheet.get_all_records()
         df = pd.DataFrame(dados)
 
