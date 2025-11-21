@@ -67,6 +67,7 @@ sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
 print("Service Account:", creds_dict["client_email"])
+
 try:
     locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")  # Linux/Mac
 except:
@@ -202,7 +203,34 @@ if meta_valor > 0:
         """,
         unsafe_allow_html=True
     )
-    
+    df["registro"] = pd.to_datetime(df["registro"], errors="coerce")
+    ultima_atualizacao = df["registro"].max()
+    with col3:
+    # Pegar a última atualização
+        if pd.notnull(ultima_atualizacao):
+            ultima_formatada = ultima_atualizacao.strftime("%d/%m/%Y %H:%M:%S")
+
+            st.markdown(
+                f"""
+                    <div style="text-align: center; color: white; font-size: 35px; margin-bottom: 40px;">
+                        Última atualização:
+                    </div>
+                    <div style="text-align: center; color: white; font-size: 35px; margin-top: -30px;">
+                        {ultima_formatada}
+                    </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f"""
+                    <div style="text-align: center; color: white; font-size: 30px;">
+                        Sem registros ainda
+                    </div>
+                """,
+                unsafe_allow_html=True
+            )
+
 
 
     # Barras de progresso
