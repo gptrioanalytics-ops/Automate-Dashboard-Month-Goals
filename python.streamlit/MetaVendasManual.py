@@ -190,7 +190,7 @@ if meta_valor > 0:
         """,
         unsafe_allow_html=True
     )
-    with col3:
+    with col2:
         st.markdown(
         f"""
         <div style="text-align: left;">
@@ -202,6 +202,8 @@ if meta_valor > 0:
         """,
         unsafe_allow_html=True
     )
+    
+    
 
     # Barras de progresso
     #st.write("### Progresso")
