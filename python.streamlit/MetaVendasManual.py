@@ -193,7 +193,7 @@ if meta_valor > 0:
     with col2:
         st.markdown(
         f"""
-        <div style="text-align: left;">
+        <div style="text-align: center;">
             <h2>Valor para atingir meta</h2>
             <p style="font-size:50px; text-align: center;font-weight:; color:white;">
                 {format_currency(faltante, "BRL", locale="pt_BR")}
