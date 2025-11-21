@@ -18,6 +18,7 @@ from email.mime.multipart import MIMEMultipart
 import os 
 import hashlib
 import json
+from zoneinfo import ZoneInfo
 
 
 st.set_page_config(layout="wide")
@@ -276,7 +277,7 @@ else:
 
             if st.button("Salvar"):
                 sheet = get_sheet(SHEET_ID, "SalvaDado")
-                registro = str(datetime.now())
+                registro = datetime.now(ZoneInfo("America/Sao_Paulo")).strftime("%Y-%m-%d %H:%M:%S")
                 data = [mes, meta, venda, vendedor, evento, registro]
                 sheet.append_row(data)
                 st.success(
