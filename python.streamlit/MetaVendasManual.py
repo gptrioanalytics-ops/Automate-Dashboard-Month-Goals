@@ -182,7 +182,7 @@ if meta_valor > 0:
     with col1:
         st.markdown(
         f"""
-        <div style="text-align: right;">
+        <div style="text-align: center;">
             <h2>Tempo decorrido</h2>
             <p style="font-size:50px; font-weight:; color:white;">
             {progresso_tempo*100:.1f}%     
