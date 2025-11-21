@@ -86,17 +86,13 @@ st.markdown(
     f"""
     <style>
     .fixed-title {{
-        position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
         text-align: center;
-        font-size: 32px;
+        color: #FFFFFF;
+        font-size: 40px;
         font-weight: bold;
-        padding: 20px 0;
-        background: transparent;
-        color: white;
-        z-index: 9999;
+        padding: 20px 0 10px 0;
+        margin-top: 10px;
     }}
     </style>
 
@@ -106,6 +102,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 # Filtra usando o mês normalizado
