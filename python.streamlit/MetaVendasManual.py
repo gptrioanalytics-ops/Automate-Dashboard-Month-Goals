@@ -195,7 +195,7 @@ if meta_valor > 0:
         f"""
         <div style="text-align: left;">
             <h2>Valor para atingir meta</h2>
-            <p style="font-size:50px; font-weight:; color:white;">
+            <p style="font-size:50px; text-align: center;font-weight:; color:white;">
                 {format_currency(faltante, "BRL", locale="pt_BR")}
             </p>
         </div>
@@ -203,7 +203,7 @@ if meta_valor > 0:
         unsafe_allow_html=True
     )
     
-    
+
 
     # Barras de progresso
     #st.write("### Progresso")
