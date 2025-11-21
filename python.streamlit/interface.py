@@ -32,10 +32,21 @@ def connect_gsheets():
     client = gspread.authorize(creds)
     return client
 
-def get_sheet(sheet_name="MetaVendas", worksheet_name="SalvaDado"):
+def get_sheet(sheet_id, worksheet_name):
     client = connect_gsheets()
-    sheet = client.open(sheet_name)
-    return sheet.worksheet(worksheet_name) #abre a pagina pelo nome
+    try:
+        return client.open_by_key(sheet_id).worksheet(worksheet_name)
+    except Exception as e:
+        st.error(f"Erro ao abrir a planilha: {e}")
+        raise
+
+SHEET_ID = st.secrets["SHEET_ID"]  
+SHEET_NAME = "SalvaDado"           
+
+sheet = get_sheet(SHEET_ID, SHEET_NAME)
+
+data = sheet.get_all_records()
+df = pd.DataFrame(data)
 # ---------------- Configuração ----------------
 load_dotenv()
 USER1_HASH = hashlib.sha256(os.getenv("PASS1").encode()).hexdigest()
