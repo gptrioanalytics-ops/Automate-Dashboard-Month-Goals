@@ -212,10 +212,10 @@ if meta_valor > 0:
 
             st.markdown(
                 f"""
-                    <div style="text-align: center; font-size: 50px; margin-bottom: 40px; color: white;">
+                    <div style="text-align: center; color: white; font-size: 35px; margin-bottom: 30px;">
                         Última atualização:
                     </div>
-                    <div style="text-align: center; color: white; font-size: 50px; margin-top: -30px;">
+                    <div style="text-align: center; color: white; font-size: 35px; margin-top: -30px;">
                         {ultima_formatada}
                     </div>
                 """,
