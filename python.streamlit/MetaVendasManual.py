@@ -16,22 +16,18 @@ from streamlit_autorefresh import st_autorefresh
 import json
 
 st.set_page_config(layout="wide")
+
 st.markdown("""
-<meta name="viewport" content="width=1920, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <style>
     .main {
-        zoom: 0.55;
+        zoom: 0.5;
     }
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<style>
     .block-container {
-        max-width: 1920px;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
