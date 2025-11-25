@@ -136,7 +136,16 @@ meta_valor = float(df_mes["meta"].iloc[0])
 
 
 
-realizado_valor = df_mes["venda"].astype(float).sum()
+df_mes["venda"] = (
+    df_mes["venda"]
+    .astype(str)
+    .str.replace(".", "", regex=False)        # tira separador de milhar
+    .str.replace(",", ".", regex=False)        # troca vírgula por ponto
+)
+
+df_mes["venda"] = pd.to_numeric(df_mes["venda"], errors="coerce")
+
+realizado_valor = df_mes["venda"].sum()
 
 
 if meta_valor > 0:
