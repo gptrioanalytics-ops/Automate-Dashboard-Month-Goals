@@ -193,7 +193,7 @@ if meta_valor > 0:
     st.markdown(    
             f"""
             <div style="text-align: center; font-size: 60px;">
-                Realizado: {realizado_fmt} 
+                Realizado: 🎉 {realizado_fmt} 🎉
             </div>
              """,
         
