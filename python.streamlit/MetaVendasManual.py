@@ -182,9 +182,9 @@ if meta_valor > 0:
     # KPI estilizado com HTML
     st.markdown(    
             f"""
-            <div style="text-align: center; font-size: 65px; font-weight: bold;
+            <div style="text-align: center; font-size: 75px; font-weight: bold;
                     color: {'lightgreen' if progresso >= 1 else 'orange' if progresso >= 0.5 else 'red'};">
-            {progresso*100:.2f}%
+            🎉 {progresso*100:.2f}% 🎉
             </div>
              """,
         
@@ -192,8 +192,8 @@ if meta_valor > 0:
         )
     st.markdown(    
             f"""
-            <div style="text-align: center; font-size: 60px;">
-                Realizado: 🎉 {realizado_fmt} 🎉
+            <div style="text-align: center; font-size: 70px;">
+                Realizado: {realizado_fmt}
             </div>
              """,
         
