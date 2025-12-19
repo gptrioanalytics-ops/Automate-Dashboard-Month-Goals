@@ -271,7 +271,10 @@ if meta_valor > 0:
         }}
         </style>
         """, unsafe_allow_html=True)
-        
+
+    progresso_tempo_real = progresso_tempo
+    progresso_vendas_real = progresso_vendas   
+
     with col2:
         #st.write("Tempo do mês")
         st.markdown(f"""
@@ -279,6 +282,7 @@ if meta_valor > 0:
             <h2>Tempo do mês</h2>
         </div>
         """, unsafe_allow_html=True)
+
         st.progress(progresso_tempo)
         #st.write("Vendas realizadas")
         st.markdown(f"""
@@ -286,8 +290,9 @@ if meta_valor > 0:
             <h2>Vendas Realizadas</h2>
         </div>
         """, unsafe_allow_html=True)
-        st.progress(progresso_vendas)
 
+        st.progress(min(progresso_vendas, 1.0))
+        st.write(f"{progresso_vendas_real * 100:.1f}% da meta")
     
 else:
     st.warning("Defina uma meta para começar 🚀")
