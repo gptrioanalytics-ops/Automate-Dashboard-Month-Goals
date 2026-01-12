@@ -184,7 +184,7 @@ if meta_valor > 0:
             f"""
             <div style="text-align: center; font-size: 75px; font-weight: bold;
                     color: {'lightgreen' if progresso >= 1 else 'orange' if progresso >= 0.5 else 'red'};">
-            🎉 {progresso*100:.2f}% 🎉
+             {progresso*100:.2f}% 
             </div>
              """,
         
